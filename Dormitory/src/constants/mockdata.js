@@ -48,9 +48,8 @@ export const initialRooms = [
         description: 'A comfortable shared room with two beds, perfect for students looking for a balance of privacy and community.',
         amenities: ['wifi', 'ac', 'laundry', 'study-desk'],
         images: [
-            'https://placehold.co/600x400/a7c4e5/ffffff?text=Twin+Room+View+1',
-            'https://placehold.co/600x400/a7c4e5/ffffff?text=Twin+Room+View+2',
-            'https://placehold.co/600x400/a7c4e5/ffffff?text=Bathroom'
+            'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&auto=format&fit=crop',
         ]
     },
     {
@@ -62,8 +61,8 @@ export const initialRooms = [
         description: 'Enjoy your own personal space in our private deluxe room, featuring premium amenities and a quiet environment for studying.',
         amenities: ['wifi', 'ac', 'laundry', 'study-desk', 'tv', 'mini-fridge'],
         images: [
-            'https://placehold.co/600x400/e5a7a7/ffffff?text=Private+Room+View+1',
-            'https://placehold.co/600x400/e5a7a7/ffffff?text=Private+Room+View+2'
+            'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=800&auto=format&fit=crop',
         ]
     },
     {
@@ -75,8 +74,10 @@ export const initialRooms = [
         description: 'Ideal for those who enjoy a lively atmosphere. Our quad rooms are spacious and foster a strong sense of community.',
         amenities: ['wifi', 'ac', 'laundry'],
         images: [
-            'https://placehold.co/600x400/a7e5b2/ffffff?text=Quad+Room+View+1',
-            'https://placehold.co/600x400/a7e5b2/ffffff?text=Quad+Room+View+2'
+            // 'https://placehold.co/600x400/a7e5b2/ffffff?text=Quad+Room+View+1',
+            // 'https://placehold.co/600x400/a7e5b2/ffffff?text=Quad+Room+View+2',
+            'https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=800&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=800&auto=format&fit=crop'
         ]
     },
     {
@@ -88,7 +89,8 @@ export const initialRooms = [
         description: 'A great option for small groups of friends. Offers a good mix of social life and personal space.',
         amenities: ['wifi', 'ac', 'laundry', 'study-desk'],
         images: [
-            'https://placehold.co/600x400/e5dca7/ffffff?text=Triple+Room+View+1'
+            // 'https://placehold.co/600x400/e5dca7/ffffff?text=Triple+Room+View+1'
+            'https://images.unsplash.com/photo-1631049035182-249067d7618e?w=800&auto=format&fit=crop'
         ]
     },
     {
@@ -100,8 +102,8 @@ export const initialRooms = [
         description: 'A luxurious studio suite with a private kitchenette, ensuite bathroom, and a beautiful city view. Perfect for those who want maximum comfort and privacy.',
         amenities: ['wifi', 'ac', 'laundry', 'study-desk', 'tv', 'mini-fridge', 'kitchenette', 'ensuite-bathroom'],
         images: [
-            'https://placehold.co/600x400/ffd6e0/222222?text=Studio+Suite+View+1',
-            'https://placehold.co/600x400/ffd6e0/222222?text=Studio+Suite+View+2'
+            'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1631049035182-249067d7618e?w=800&auto=format&fit=crop'
         ]
     },
     {
@@ -113,29 +115,30 @@ export const initialRooms = [
         description: 'A budget-friendly single room for students who value privacy at an affordable price. Includes all basic amenities.',
         amenities: ['wifi', 'laundry', 'study-desk', 'fan'],
         images: [
-            'https://placehold.co/600x400/d6ffe0/222222?text=Economy+Single+View+1'
+            // 'https://placehold.co/600x400/d6ffe0/222222?text=Economy+Single+View+1',
+            'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&auto=format&fit=crop'
         ]
     },
 ];
 
 export const galleryImages = {
     'Common Areas': [
-        'https://placehold.co/600x400/d1d5db/374151?text=Lounge+Area',
-        'https://placehold.co/600x400/d1d5db/374151?text=Study+Hall',
-        'https://placehold.co/600x400/d1d5db/374151?text=Rooftop+Garden',
-        'https://placehold.co/600x400/d1d5db/374151?text=Corridor'
+        './public/rooftop.jpg',
+        './public/studyroom.jpg',
+        '.public/launge.jpg',
+        './public/corridor.jpg'
     ],
     'Dining': [
-        'https://placehold.co/600x400/fde68a/854d0e?text=Cafeteria',
-        'https://placehold.co/600x400/fde68a/854d0e?text=Mess+Hall',
-        'https://placehold.co/600x400/fde68a/854d0e?text=Kitchenette',
-        'https://placehold.co/600x400/fde68a/854d0e?text=Dining+Area'
+        './public/cafeteria.jpg',
+        './public/messhall.jpg',
+        './public/kitchennet.png',
+        './public/dining.jpg'
     ],
     'Facilities': [
-        'https://placehold.co/600x400/bfdbfe/1e3a8a?text=Gym',
-        'https://placehold.co/600x400/bfdbfe/1e3a8a?text=Laundry+Room',
-        'https://placehold.co/600x400/bfdbfe/1e3a8a?text=Game+Room',
-        'https://placehold.co/600x400/bfdbfe/1e3a8a?text=Reception'
+        './public/gym.jpg',
+        './public/laundry.jpg',
+        './public/gameroom.jpg',
+        './public/reception.jpg'
     ]
 };
 
