@@ -79,7 +79,16 @@ Now, please answer the user's question.`;
           onClick={() => setIsOpen(true)}
           aria-label="Open DormBot Chat"
         >
-          <Sparkles className="w-6 h-6 mr-2 animate-pulse" />
+          {/* Spline 3D Model Embed */}
+          <iframe
+            src="https://app.spline.design/community/file/8cfb6748-f3dd-44dd-89fb-f46c7ab4186e/embed"
+            frameBorder="0"
+            width="32"
+            height="32"
+            style={{ border: 'none', background: 'transparent', marginRight: '0.5rem', borderRadius: '50%' }}
+            title="DormBot 3D Icon"
+            allowFullScreen
+          ></iframe>
           <span className="font-semibold">Chat</span>
         </button>
       )}
