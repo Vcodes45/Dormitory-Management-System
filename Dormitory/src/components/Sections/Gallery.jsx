@@ -14,20 +14,20 @@ const ImageModal = ({ imageUrl, onClose }) => {
     );
 };
 
-const Gallery = () => {
+const Gallery = ({ darkMode }) => {
     const [activeCategory, setActiveCategory] = useState('Common Areas');
     const [selectedImage, setSelectedImage] = useState(null);
 
     return (
-        <section id="gallery" className="py-20 bg-white">
+        <section id="gallery" className={`py-20 ${darkMode ? 'bg-[#222] text-teal-100' : 'bg-white'}`}>
             <div className="container mx-auto px-6">
                 <div className="text-center mb-12">
-                    <h2 className="text-4xl font-bold text-gray-800">Explore Our Campus</h2>
-                    <p className="text-lg text-gray-600 mt-2">A glimpse into the life and facilities at DormLife.</p>
+                    <h2 className={`text-4xl font-bold ${darkMode ? 'text-teal-200' : 'text-gray-800'}`}>Explore Our Campus</h2>
+                    <p className={`text-lg mt-2 ${darkMode ? 'text-teal-100' : 'text-gray-600'}`}>A glimpse into the life and facilities at DormLife.</p>
                 </div>
                 <div className="flex justify-center space-x-2 md:space-x-4 mb-8">
                     {Object.keys(galleryImages).map(category => (
-                        <button key={category} onClick={() => setActiveCategory(category)} className={`px-4 py-2 rounded-full font-semibold transition-colors ${activeCategory === category ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'}`}>
+                        <button key={category} onClick={() => setActiveCategory(category)} className={`px-4 py-2 rounded-full font-semibold transition-colors ${activeCategory === category ? (darkMode ? 'bg-teal-700 text-white' : 'bg-emerald-600 text-white') : (darkMode ? 'bg-[#303030] text-teal-100 hover:bg-[#222]' : 'bg-gray-200 text-gray-700 hover:bg-gray-300')}`}>
                             {category}
                         </button>
                     ))}

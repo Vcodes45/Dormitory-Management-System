@@ -1,47 +1,18 @@
-// import React from 'react';
-
-// const Hero = ({ setActiveSection }) => (
-//     <section id="home" className="bg-blue-50 py-20">
-//         <div className="container mx-auto px-6 text-center">
-//             <h1 className="text-4xl md:text-6xl font-extrabold text-gray-800 leading-tight">
-//                 Your Perfect Student Home Awaits
-//             </h1>
-//             <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
-//                 Discover a safe, comfortable, and vibrant community. Fully-furnished rooms with all-inclusive amenities designed for student life.
-//             </p>
-//             <div className="mt-8 flex justify-center space-x-4">
-//                 <a href="#rooms" onClick={(e) => { e.preventDefault(); setActiveSection('rooms'); }} className="bg-blue-600 text-white px-8 py-3 rounded-full font-semibold text-lg hover:bg-blue-700 transition-transform transform hover:scale-105">
-//                     Explore Rooms
-//                 </a>
-//                 <a href="#gallery" onClick={(e) => { e.preventDefault(); setActiveSection('gallery'); }} className="bg-white text-blue-600 border border-blue-600 px-8 py-3 rounded-full font-semibold text-lg hover:bg-gray-50 transition-transform transform hover:scale-105">
-//                     View Gallery
-//                 </a>
-//             </div>
-//         </div>
-//     </section>
-// );
-
-// export default Hero;
-
-
-
-
-
-
 import React from 'react';
 
 
-const Hero = ({ setActiveSection }) => (
+const Hero = ({ setActiveSection, darkMode }) => (
     <section
         id="home"
-        className="relative h-screen flex items-center justify-center overflow-hidden"
+        className={`relative h-screen flex items-center justify-center overflow-hidden ${darkMode ? 'bg-[#303030]' : ''}`}
         style={{ minHeight: '100vh' }}
     >
         {/* Background image */}
         <div
             className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
             style={{
-                backgroundImage: "url('/BG.jpg')",
+                backgroundImage: darkMode ? "url('/BG.jpg')" : "url('/BG.jpg')",
+                backgroundColor: darkMode ? '#303030' : 'transparent',
                 backgroundRepeat: 'no-repeat',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
@@ -49,27 +20,23 @@ const Hero = ({ setActiveSection }) => (
             }}
         />
         {/* Blur overlay */}
-        <div className="absolute inset-0 w-full h-full backdrop-blur-xs bg-white/30 z-10" />
+        <div className={`absolute inset-0 w-full h-full z-10 ${darkMode ? 'bg-[#303030]/80' : 'backdrop-blur-xs bg-emerald/30'}`} />
         {/* Content */}
         <div className="container mx-auto px-6 text-center relative z-20">
-            <h1 className="text-4xl md:text-6xl font-extrabold text-gray-800 leading-tight drop-shadow-lg">
-                Your Perfect Student Home Awaits
-            </h1>
-            <p className="mt-4 text-lg text-gray-700 max-w-2xl mx-auto drop-shadow">
-                Discover a safe, comfortable, and vibrant community. Fully-furnished rooms with all-inclusive amenities designed for student life.
-            </p>
+            <h1 className={`text-4xl md:text-6xl font-extrabold leading-tight drop-shadow-lg ${darkMode ? 'text-teal-200' : 'text-gray-800'}`}>Your Perfect Student Home Awaits</h1>
+            <p className={`mt-4 text-lg max-w-2xl mx-auto drop-shadow ${darkMode ? 'text-teal-100' : 'text-emerald-50'}`}>Discover a safe, comfortable, and vibrant community. Fully-furnished rooms with all-inclusive amenities designed for student life.</p>
             <div className="mt-8 flex justify-center space-x-4">
                 <a
                     href="#rooms"
                     onClick={(e) => { e.preventDefault(); setActiveSection('rooms'); }}
-                    className="bg-blue-600 text-white px-8 py-3 rounded-full font-semibold text-lg hover:bg-blue-700 transition-transform transform hover:scale-105 shadow-lg"
+                    className={`px-8 py-3 rounded-full font-semibold text-lg transition-transform transform hover:scale-105 shadow-lg ${darkMode ? 'bg-teal-700 text-white hover:bg-teal-800' : 'bg-emerald-600 text-white hover:bg-emerald-500'}`}
                 >
                     Explore Rooms
                 </a>
                 <a
                     href="#gallery"
                     onClick={(e) => { e.preventDefault(); setActiveSection('gallery'); }}
-                    className="bg-white text-blue-600 border border-blue-600 px-8 py-3 rounded-full font-semibold text-lg hover:bg-gray-50 transition-transform transform hover:scale-105 shadow"
+                    className={`border px-8 py-3 rounded-full font-semibold text-lg transition-transform transform hover:scale-105 shadow ${darkMode ? 'bg-[#222] text-teal-200 border-teal-400 hover:bg-[#303030]' : 'bg-emerald-50 text-emerald-600 border-emerald-600 hover:bg-gray-50'}`}
                 >
                     View Gallery
                 </a>

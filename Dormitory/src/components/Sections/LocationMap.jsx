@@ -61,7 +61,7 @@ const dormIcon = new L.Icon({
   popupAnchor: [0, -30],
 });
 
-const LocationMap = () => {
+const LocationMap = ({ darkMode }) => {
   // Fake dormitory locations in Mumbai (lat, lng)
   const dormLocations = [
     { name: "DormLife Heights - Bandra", coords: [19.0596, 72.8295] },
@@ -70,11 +70,11 @@ const LocationMap = () => {
   ];
 
   return (
-    <section id="location" className="py-20 bg-gradient-to-b from-white to-gray-100">
+    <section id="location" className={`py-20 ${darkMode ? 'bg-[#222] text-teal-100' : 'bg-gradient-to-b from-white to-gray-100'}`}>
       <div className="container mx-auto px-6">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-extrabold text-gray-900">Our Location</h2>
-          <p className="text-lg text-gray-600 mt-2">
+          <h2 className={`text-4xl font-bold ${darkMode ? 'text-teal-200' : 'text-gray-800'}`}>Our Location</h2>
+          <p className={`text-lg mt-2 ${darkMode ? 'text-teal-50' : 'text-gray-600'}`}>
             Explore our dormitories across Mumbai.
           </p>
         </div>
@@ -82,7 +82,7 @@ const LocationMap = () => {
         {/* Flex Row Layout */}
         <div className="flex flex-col md:flex-row gap-8 items-stretch">
           {/* Map (takes most space) */}
-          <div className="flex-[2] rounded-2xl shadow-xl overflow-hidden border border-gray-200">
+    <div className={`flex-[2] rounded-2xl shadow-xl overflow-hidden border ${darkMode ? 'border-[#303030]' : 'border-gray-200'}`}>
             <MapContainer
               center={[19.076, 72.8777]} // Mumbai center
               zoom={12}
@@ -105,22 +105,22 @@ const LocationMap = () => {
           </div>
 
           {/* Info Box (smaller) */}
-          <div className="flex-[1] bg-white p-8 rounded-2xl shadow-xl border border-gray-200 flex flex-col justify-between">
+          <div className={`flex-[1] p-8 rounded-2xl shadow-xl flex flex-col justify-between ${darkMode ? 'bg-[#303030] border-[#303030] text-teal-100' : 'bg-white border border-gray-200'}`}>
             <div>
-              <h3 className="text-3xl font-bold text-gray-900">DormLife Heights</h3>
-              <p className="text-gray-600 mt-4 flex items-start">
-                <MapPin className="h-6 w-6 mr-3 mt-1 text-blue-600 flex-shrink-0" />
+              <h3 className={`text-3xl font-bold ${darkMode ? 'text-teal-200' : 'text-gray-900'}`}>DormLife Heights</h3>
+              <p className={`mt-4 flex items-start ${darkMode ? 'text-teal-100' : 'text-gray-600'}`}>
+                <MapPin className={`h-6 w-6 mr-3 mt-1 flex-shrink-0 ${darkMode ? 'text-teal-400' : 'text-emerald-600'}`} />
                 123 University Lane, Student City, Mumbai, India
               </p>
             </div>
 
             <div className="mt-8 border-t pt-6">
-              <h4 className="font-semibold text-gray-800 mb-4 text-lg">Nearby Places</h4>
-              <ul className="space-y-3 text-gray-600 text-base">
-                <li className="hover:text-blue-600 transition">• University of Mumbai (10 min drive)</li>
-                <li className="hover:text-blue-600 transition">• Mumbai Central Station (15 min drive)</li>
-                <li className="hover:text-blue-600 transition">• Asiatic Library (20 min drive)</li>
-                <li className="hover:text-blue-600 transition">• "Café Mondegar" (10 min drive)</li>
+              <h4 className={`font-semibold mb-4 text-lg ${darkMode ? 'text-teal-200' : 'text-gray-800'}`}>Nearby Places</h4>
+              <ul className={`space-y-3 text-base ${darkMode ? 'text-teal-100' : 'text-gray-600'}`}>
+                <li className={darkMode ? 'hover:text-teal-400 transition' : 'hover:text-emerald-600 transition'}>• University of Mumbai (10 min drive)</li>
+                <li className={darkMode ? 'hover:text-teal-400 transition' : 'hover:text-emerald-600 transition'}>• Mumbai Central Station (15 min drive)</li>
+                <li className={darkMode ? 'hover:text-teal-400 transition' : 'hover:text-emerald-600 transition'}>• Asiatic Library (20 min drive)</li>
+                <li className={darkMode ? 'hover:text-teal-400 transition' : 'hover:text-emerald-600 transition'}>• "Café Mondegar" (10 min drive)</li>
               </ul>
             </div>
           </div>

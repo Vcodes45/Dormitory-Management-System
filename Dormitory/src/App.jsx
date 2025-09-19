@@ -14,6 +14,7 @@ import AIChatbot from './components/AIChatbot/AIChatbot';
 
 export default function App() {
     const [activeSection, setActiveSection] = useState('home');
+    const [darkMode, setDarkMode] = useState(false);
 
     // Simple scroll-to-section logic
     useEffect(() => {
@@ -27,16 +28,26 @@ export default function App() {
     }, [activeSection]);
 
     return (
-        <div className="min-h-screen font-sans bg-gradient-to-br from-teal-100 via-white to-teal-200">
-            <Header setActiveSection={setActiveSection} activeSection={activeSection} />
+        <div className={
+            `min-h-screen font-sans transition-colors duration-300 ` +
+            (darkMode
+                ? 'bg-[#303030] text-white'
+                : 'bg-gradient-to-br from-teal-100 via-white to-teal-200 text-gray-900')
+        }>
+            <Header
+                setActiveSection={setActiveSection}
+                activeSection={activeSection}
+                darkMode={darkMode}
+                setDarkMode={setDarkMode}
+            />
             <main>
-                <Hero setActiveSection={setActiveSection} />
-                <RoomListings />
-                <Gallery />
-                <Testimonials />
-                <LocationMap />
-                <FAQ />
-                <ContactForm />
+                <Hero setActiveSection={setActiveSection} darkMode={darkMode} />
+                <RoomListings darkMode={darkMode} />
+                <Gallery darkMode={darkMode} />
+                <Testimonials darkMode={darkMode} />
+                <LocationMap darkMode={darkMode} />
+                <FAQ darkMode={darkMode} />
+                <ContactForm darkMode={darkMode} />
             </main>
             <Footer />
             <AIChatbot />

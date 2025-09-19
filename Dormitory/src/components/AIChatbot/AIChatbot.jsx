@@ -207,7 +207,7 @@ Now, please answer the user's question.`;
               aria-label="Type your message"
             />
             <button
-              className={`bg-blue-600 hover:bg-blue-700 text-white rounded-lg p-2 transition-all duration-200 ${isLoading || !inputValue.trim() ? 'opacity-50 cursor-not-allowed' : ''}`}
+              className={`bg-blue-600 hover:bg-emerald-500 text-white rounded-lg p-2 transition-all duration-200 ${isLoading || !inputValue.trim() ? 'opacity-50 cursor-not-allowed' : ''}`}
               onClick={handleSendMessage}
               disabled={isLoading || !inputValue.trim()}
               aria-label="Send message"
