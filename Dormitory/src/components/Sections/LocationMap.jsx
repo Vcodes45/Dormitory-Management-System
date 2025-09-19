@@ -49,7 +49,7 @@
 
 import React from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import { MapPin } from "lucide-react"; // ✅ Added import
+import { MapPin } from "lucide-react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 
@@ -81,8 +81,8 @@ const LocationMap = () => {
 
         {/* Flex Row Layout */}
         <div className="flex flex-col md:flex-row gap-8 items-stretch">
-          {/* Map */}
-          <div className="flex-1 rounded-2xl shadow-xl overflow-hidden border border-gray-200">
+          {/* Map (takes most space) */}
+          <div className="flex-[2] rounded-2xl shadow-xl overflow-hidden border border-gray-200">
             <MapContainer
               center={[19.076, 72.8777]} // Mumbai center
               zoom={12}
@@ -104,8 +104,8 @@ const LocationMap = () => {
             </MapContainer>
           </div>
 
-          {/* Info Box */}
-          <div className="flex-1 bg-white p-8 rounded-2xl shadow-xl border border-gray-200 flex flex-col justify-between">
+          {/* Info Box (smaller) */}
+          <div className="flex-[1] bg-white p-8 rounded-2xl shadow-xl border border-gray-200 flex flex-col justify-between">
             <div>
               <h3 className="text-3xl font-bold text-gray-900">DormLife Heights</h3>
               <p className="text-gray-600 mt-4 flex items-start">
@@ -131,4 +131,5 @@ const LocationMap = () => {
 };
 
 export default LocationMap;
+
 
