@@ -1,47 +1,134 @@
-import React from 'react';
-import { MapPin } from 'lucide-react';
+// import React from 'react';
+// import { MapPin } from 'lucide-react';
 
-const LocationMap = () => (
-    <section id="location" className="py-20 bg-white">
-        <div className="container mx-auto px-6">
-            <div className="text-center mb-12">
-                <h2 className="text-4xl font-bold text-gray-800">Our Location</h2>
-                <p className="text-lg text-gray-600 mt-2">Conveniently located in the heart of the student district.</p>
-            </div>
-            <div className="grid md:grid-cols-3 gap-8 items-center">
-                <div className="md:col-span-2">
-                    <div className="aspect-w-16 aspect-h-9 rounded-xl shadow-lg overflow-hidden">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.521260322283!2d106.8195613507886!3d-6.194741395534831!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f428942371cf%3A0x26335f6f4d36d8db!2sNational%20Monument!5e0!3m2!1sen!2sid!4v1622037930495!5m2!1sen!2sid"
-                            width="100%"
-                            height="450"
-                            style={{ border: 0 }}
-                            allowFullScreen=""
-                            loading="lazy"
-                            referrerPolicy="no-referrer-when-downgrade"
-                            title="Dormitory Location"
-                        ></iframe>
-                    </div>
-                </div>
-                <div className="bg-gray-50 p-6 rounded-lg">
-                    <h3 className="text-2xl font-bold text-gray-800">DormLife Heights</h3>
-                    <p className="text-gray-600 mt-2 flex items-start">
-                        <MapPin className="h-6 w-6 mr-3 mt-1 text-blue-500 flex-shrink-0" />
-                        123 University Lane, Student City, ST 45678
-                    </p>
-                    <div className="mt-6 border-t pt-6">
-                        <h4 className="font-semibold text-gray-700 mb-3">Nearby Places:</h4>
-                        <ul className="space-y-2 text-gray-600">
-                            <li>- City Central University (5 min walk)</li>
-                            <li>- Downtown Metro Station (10 min walk)</li>
-                            <li>- Central Library (7 min walk)</li>
-                            <li>- "The Hangout" Cafe (2 min walk)</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+// const LocationMap = () => (
+//     <section id="location" className="py-20 bg-white">
+//         <div className="container mx-auto px-6">
+//             <div className="text-center mb-12">
+//                 <h2 className="text-4xl font-bold text-gray-800">Our Location</h2>
+//                 <p className="text-lg text-gray-600 mt-2">Conveniently located in the heart of the student district.</p>
+//             </div>
+//             <div className="grid md:grid-cols-3 gap-8 items-center">
+//                 <div className="md:col-span-2">
+//                     <div className="aspect-w-16 aspect-h-9 rounded-xl shadow-lg overflow-hidden">
+//                         <iframe
+//                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d241317.11609803714!2d72.74109965033078!3d19.08219783994614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b63a33f9ef2d%3A0x6f7e65c87e4b74f3!2sMumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1695198047001!5m2!1sen!2sin"
+//                             width="100%"
+//                             height="450"
+//                             style={{ border: 0 }}
+//                             allowFullScreen=""
+//                             loading="lazy"
+//                             referrerPolicy="no-referrer-when-downgrade"
+//                             title="Dormitory Location"
+//                         ></iframe>
+//                     </div>
+//                 </div>
+//                 <div className="bg-gray-50 p-6 rounded-lg">
+//                     <h3 className="text-2xl font-bold text-gray-800">DormLife Heights</h3>
+//                     <p className="text-gray-600 mt-2 flex items-start">
+//                         <MapPin className="h-6 w-6 mr-3 mt-1 text-blue-500 flex-shrink-0" />
+//                         123 University Lane, Student City, Mumbai, India
+//                     </p>
+//                     <div className="mt-6 border-t pt-6">
+//                         <h4 className="font-semibold text-gray-700 mb-3">Nearby Places:</h4>
+//                         <ul className="space-y-2 text-gray-600">
+//                             <li>- University of Mumbai (10 min drive)</li>
+//                             <li>- Mumbai Central Station (15 min drive)</li>
+//                             <li>- Asiatic Library (20 min drive)</li>
+//                             <li>- "Café Mondegar" (10 min drive)</li>
+//                         </ul>
+//                     </div>
+//                 </div>
+//             </div>
+//         </div>
+//     </section>
+// );
+
+// export default LocationMap;
+
+
+import React from "react";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { MapPin } from "lucide-react"; // ✅ Added import
+import L from "leaflet";
+import "leaflet/dist/leaflet.css";
+
+// Custom dormitory icon
+const dormIcon = new L.Icon({
+  iconUrl: "https://cdn-icons-png.flaticon.com/512/854/854878.png",
+  iconSize: [35, 35],
+  iconAnchor: [17, 34],
+  popupAnchor: [0, -30],
+});
+
+const LocationMap = () => {
+  // Fake dormitory locations in Mumbai (lat, lng)
+  const dormLocations = [
+    { name: "DormLife Heights - Bandra", coords: [19.0596, 72.8295] },
+    { name: "DormLife Heights - Andheri", coords: [19.1197, 72.8468] },
+    { name: "DormLife Heights - Colaba", coords: [18.9217, 72.8324] },
+  ];
+
+  return (
+    <section id="location" className="py-20 bg-gradient-to-b from-white to-gray-100">
+      <div className="container mx-auto px-6">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-extrabold text-gray-900">Our Location</h2>
+          <p className="text-lg text-gray-600 mt-2">
+            Explore our dormitories across Mumbai.
+          </p>
         </div>
+
+        {/* Flex Row Layout */}
+        <div className="flex flex-col md:flex-row gap-8 items-stretch">
+          {/* Map */}
+          <div className="flex-1 rounded-2xl shadow-xl overflow-hidden border border-gray-200">
+            <MapContainer
+              center={[19.076, 72.8777]} // Mumbai center
+              zoom={12}
+              scrollWheelZoom={true}
+              style={{ height: "100%", width: "100%", minHeight: "500px" }}
+            >
+              {/* Map tiles (OpenStreetMap) */}
+              <TileLayer
+                attribution='&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>'
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              />
+
+              {/* Fake Dormitory Markers */}
+              {dormLocations.map((dorm, index) => (
+                <Marker key={index} position={dorm.coords} icon={dormIcon}>
+                  <Popup>{dorm.name}</Popup>
+                </Marker>
+              ))}
+            </MapContainer>
+          </div>
+
+          {/* Info Box */}
+          <div className="flex-1 bg-white p-8 rounded-2xl shadow-xl border border-gray-200 flex flex-col justify-between">
+            <div>
+              <h3 className="text-3xl font-bold text-gray-900">DormLife Heights</h3>
+              <p className="text-gray-600 mt-4 flex items-start">
+                <MapPin className="h-6 w-6 mr-3 mt-1 text-blue-600 flex-shrink-0" />
+                123 University Lane, Student City, Mumbai, India
+              </p>
+            </div>
+
+            <div className="mt-8 border-t pt-6">
+              <h4 className="font-semibold text-gray-800 mb-4 text-lg">Nearby Places</h4>
+              <ul className="space-y-3 text-gray-600 text-base">
+                <li className="hover:text-blue-600 transition">• University of Mumbai (10 min drive)</li>
+                <li className="hover:text-blue-600 transition">• Mumbai Central Station (15 min drive)</li>
+                <li className="hover:text-blue-600 transition">• Asiatic Library (20 min drive)</li>
+                <li className="hover:text-blue-600 transition">• "Café Mondegar" (10 min drive)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
-);
+  );
+};
 
 export default LocationMap;
+

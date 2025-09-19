@@ -91,6 +91,31 @@ export const initialRooms = [
             'https://placehold.co/600x400/e5dca7/ffffff?text=Triple+Room+View+1'
         ]
     },
+    {
+        id: 5,
+        name: 'Premium Studio Suite',
+        type: 'Studio',
+        price: 10000,
+        availability: 1,
+        description: 'A luxurious studio suite with a private kitchenette, ensuite bathroom, and a beautiful city view. Perfect for those who want maximum comfort and privacy.',
+        amenities: ['wifi', 'ac', 'laundry', 'study-desk', 'tv', 'mini-fridge', 'kitchenette', 'ensuite-bathroom'],
+        images: [
+            'https://placehold.co/600x400/ffd6e0/222222?text=Studio+Suite+View+1',
+            'https://placehold.co/600x400/ffd6e0/222222?text=Studio+Suite+View+2'
+        ]
+    },
+    {
+        id: 6,
+        name: 'Economy Single Room',
+        type: '1-Bed',
+        price: 7000,
+        availability: 4,
+        description: 'A budget-friendly single room for students who value privacy at an affordable price. Includes all basic amenities.',
+        amenities: ['wifi', 'laundry', 'study-desk', 'fan'],
+        images: [
+            'https://placehold.co/600x400/d6ffe0/222222?text=Economy+Single+View+1'
+        ]
+    },
 ];
 
 export const galleryImages = {
@@ -103,7 +128,8 @@ export const galleryImages = {
     'Dining': [
         'https://placehold.co/600x400/fde68a/854d0e?text=Cafeteria',
         'https://placehold.co/600x400/fde68a/854d0e?text=Mess+Hall',
-        'https://placehold.co/600x400/fde68a/854d0e?text=Kitchenette'
+        'https://placehold.co/600x400/fde68a/854d0e?text=Kitchenette',
+        'https://placehold.co/600x400/fde68a/854d0e?text=Dining+Area'
     ],
     'Facilities': [
         'https://placehold.co/600x400/bfdbfe/1e3a8a?text=Gym',
