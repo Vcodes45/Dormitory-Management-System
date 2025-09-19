@@ -77,7 +77,7 @@ const RoomModal = ({ room, onClose, darkMode }) => {
                             <div className="flex flex-wrap gap-2">
                                 {room.amenities.map(amenity => <AmenityIcon key={amenity} amenity={amenity} />)}
                             </div>
-                            <button disabled={room.availability === 0} className={`mt-8 w-full py-3 rounded-lg font-semibold transition duration-300 ${darkMode ? (room.availability > 0 ? 'bg-teal-700 text-white hover:bg-teal-800' : 'bg-gray-700 text-gray-400') : (room.availability > 0 ? 'bg-blue-emerald text-white hover:bg-emerald-500' : 'bg-gray-400 text-white')}`}>{room.availability > 0 ? 'Inquire Now' : 'Not Available'}</button>
+                            <button disabled={room.availability === 0} className={`mt-8 w-full py-3 rounded-lg font-semibold transition duration-300 ${darkMode ? (room.availability > 0 ? 'bg-teal-700 text-white hover:bg-teal-800' : 'bg-gray-700 text-gray-400') : (room.availability > 0 ? 'bg-emerald-500 text-white hover:bg-emerald-700' : 'bg-gray-400 text-white')}`}>{room.availability > 0 ? 'Inquire Now' : 'Not Available'}</button>
                         </div>
                     </div>
                 </div>

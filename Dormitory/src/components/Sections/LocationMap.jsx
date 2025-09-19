@@ -120,7 +120,7 @@ const LocationMap = ({ darkMode }) => {
                 <li className={darkMode ? 'hover:text-teal-400 transition' : 'hover:text-emerald-600 transition'}>• University of Mumbai (10 min drive)</li>
                 <li className={darkMode ? 'hover:text-teal-400 transition' : 'hover:text-emerald-600 transition'}>• Mumbai Central Station (15 min drive)</li>
                 <li className={darkMode ? 'hover:text-teal-400 transition' : 'hover:text-emerald-600 transition'}>• Asiatic Library (20 min drive)</li>
-                <li className={darkMode ? 'hover:text-teal-400 transition' : 'hover:text-emerald-600 transition'}>• "Café Mondegar" (10 min drive)</li>
+                <li className={darkMode ? 'hover:text-teal-400 transition' : 'hover:text-emerald-600 transition'}>• Café Mondegar (10 min drive)</li>
               </ul>
             </div>
           </div>

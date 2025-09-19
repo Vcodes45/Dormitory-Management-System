@@ -23,7 +23,7 @@ const Hero = ({ setActiveSection, darkMode }) => (
         <div className={`absolute inset-0 w-full h-full z-10 ${darkMode ? 'bg-[#303030]/80' : 'backdrop-blur-xs bg-emerald/30'}`} />
         {/* Content */}
         <div className="container mx-auto px-6 text-center relative z-20">
-            <h1 className={`text-4xl md:text-6xl font-extrabold leading-tight drop-shadow-lg ${darkMode ? 'text-teal-200' : 'text-gray-800'}`}>Your Perfect Student Home Awaits</h1>
+            <h1 className={`text-4xl md:text-6xl font-extrabold leading-tight drop-shadow-lg ${darkMode ? 'text-teal-200' : 'text-emerald-950'}`}>Your Perfect Student Home Awaits</h1>
             <p className={`mt-4 text-lg max-w-2xl mx-auto drop-shadow ${darkMode ? 'text-teal-100' : 'text-emerald-50'}`}>Discover a safe, comfortable, and vibrant community. Fully-furnished rooms with all-inclusive amenities designed for student life.</p>
             <div className="mt-8 flex justify-center space-x-4">
                 <a
