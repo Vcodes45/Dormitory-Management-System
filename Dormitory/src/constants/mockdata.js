@@ -125,7 +125,7 @@ export const galleryImages = {
     'Common Areas': [
         './public/rooftop.jpg',
         './public/studyroom.jpg',
-        '.public/Lounge.jpg',
+        './public/Lounge.jpg',
         './public/corridor.jpg'
     ],
     'Dining': [
