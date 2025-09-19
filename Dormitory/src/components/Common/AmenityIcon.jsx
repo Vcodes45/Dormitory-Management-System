@@ -38,8 +38,8 @@ import { Wifi, Wind, Tv, Coffee } from 'lucide-react';
 
 const AmenityIcon = ({ amenity }) => {
     const iconMap = {
-        wifi: <Wifi className="h-5 w-5 text-blue-500" />,
-        ac: <Wind className="h-5 w-5 text-sky-500" />,
+        wifi: <Wifi className="h-5 w-5 text-emerald-500" />,
+        ac: <Wind className="h-5 w-5 text-emerald-500" />,
         laundry: <div className="h-5 w-5 text-gray-500 font-bold text-xs flex items-center justify-center">W</div>,
         'study-desk': <Tv className="h-5 w-5 text-gray-700" />,
         tv: <Tv className="h-5 w-5 text-red-500" />,
