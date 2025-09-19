@@ -27,7 +27,7 @@ export default function App() {
     }, [activeSection]);
 
     return (
-        <div className="bg-white font-sans">
+        <div className="min-h-screen font-sans bg-gradient-to-br from-teal-100 via-white to-teal-200">
             <Header setActiveSection={setActiveSection} activeSection={activeSection} />
             <main>
                 <Hero setActiveSection={setActiveSection} />
