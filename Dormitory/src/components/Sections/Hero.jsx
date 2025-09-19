@@ -31,7 +31,7 @@
 import React from 'react';
 
 const Hero = ({ setActiveSection }) => (
-    <section id="home" className="bg-blue-50 py-20">
+    <section id="home" className="bg-blue-50 py-20 h-screen flex items-center justify-center">
         <div className="container mx-auto px-6 text-center">
             <h1 className="text-4xl md:text-6xl font-extrabold text-gray-800 leading-tight">
                 Your Perfect Student Home Awaits

@@ -28,7 +28,7 @@ export default function App() {
 
     return (
         <div className="bg-white font-sans">
-            <Header setActiveSection={setActiveSection} />
+            <Header setActiveSection={setActiveSection} activeSection={activeSection} />
             <main>
                 <Hero setActiveSection={setActiveSection} />
                 <RoomListings />
