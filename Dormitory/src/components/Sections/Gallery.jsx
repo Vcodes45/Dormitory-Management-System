@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { X } from 'lucide-react';
-import { galleryImages } from '../../constants/mockdata';
+import { galleryImages } from '../../constants/mockData';
 
 const ImageModal = ({ imageUrl, onClose }) => {
     if (!imageUrl) return null;

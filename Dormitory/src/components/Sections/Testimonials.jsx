@@ -1,6 +1,6 @@
 import React from 'react';
 import { Star } from 'lucide-react';
-import { testimonials } from '../../constants/mockdata';
+import { testimonials } from '../../constants/mockData';
 
 const Testimonials = () => (
     <section id="testimonials" className="py-20 bg-blue-50">

@@ -1,8 +1,8 @@
 import React, { useState, useMemo } from 'react';
 import { X, Sparkles } from 'lucide-react';
-import { initialRooms } from '../../constants/mockdata';
+import { initialRooms } from '../../constants/mockData';
 import AmenityIcon from '../Common/AmenityIcon';
-import { generateContent } from '../../api/geminiApi';
+import { generateContent } from '../../api/geminiAPI';
 
 const RoomModal = ({ room, onClose }) => {
     if (!room) return null;

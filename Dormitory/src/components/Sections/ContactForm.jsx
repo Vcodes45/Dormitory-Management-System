@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { generateContent } from '../../api/geminiApi';
+import { generateContent } from '../../api/geminiAPI';
 
 const ContactForm = () => {
     const [submitted, setSubmitted] = useState(false);

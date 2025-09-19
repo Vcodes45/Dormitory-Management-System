@@ -1,5 +1,5 @@
 import React from 'react';
-import { faqs } from '../../constants/mockdata';
+import { faqs } from '../../constants/mockData';
 import FAQItem from '../Common/FAQItem';
 
 const FAQ = () => (
