@@ -80,10 +80,15 @@ Now, please answer the user's question.`;
           aria-label="Open DormBot Chat"
         >
           {/* Spline 3D Model Embed */}
-          <iframe src='https://my.spline.design/genkubgreetingrobot-3VztJ3AJijuenaM1LbPoRewZ/' frameborder='0' width='100%' height='100%'></iframe>
+          <iframe
+            src="https://my.spline.design/genkubgreetingrobot-3VztJ3AJijuenaM1LbPoRewZ/"
+            frameborder="0"
+            width="100%"
+            height="100%"
+          ></iframe>
           <span className="font-semibold">Chat</span>
         </button>
-      )}
+      )}
 
       {/* Chatbot Window */}
       {isOpen && (
@@ -104,17 +109,22 @@ Now, please answer the user's question.`;
           </div>
 
           {/* Messages */}
-          <div className="flex-1 overflow-y-auto px-4 py-3 bg-gray-50" style={{ maxHeight: '350px' }}>
+          <div
+            className="flex-1 overflow-y-auto px-4 py-3 bg-gray-50"
+            style={{ maxHeight: "350px" }}
+          >
             {messages.map((msg, idx) => (
               <div
                 key={idx}
-                className={`mb-3 flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}
+                className={`mb-3 flex ${
+                  msg.sender === "user" ? "justify-end" : "justify-start"
+                }`}
               >
                 <div
                   className={`px-3 py-2 rounded-lg text-sm max-w-[80%] whitespace-pre-line ${
-                    msg.sender === 'user'
-                      ? 'bg-emerald-500 text-white rounded-br-none'
-                      : 'bg-gray-200 text-gray-900 rounded-bl-none'
+                    msg.sender === "user"
+                      ? "bg-emerald-500 text-white rounded-br-none"
+                      : "bg-gray-200 text-gray-900 rounded-bl-none"
                   }`}
                 >
                   {msg.text}
@@ -129,17 +139,23 @@ Now, please answer the user's question.`;
             <input
               type="text"
               className="flex-1 border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-400"
-              placeholder={isLoading ? "Waiting for response..." : "Type your message..."}
+              placeholder={
+                isLoading ? "Waiting for response..." : "Type your message..."
+              }
               value={inputValue}
-              onChange={e => setInputValue(e.target.value)}
-              onKeyDown={e => {
-                if (e.key === 'Enter') handleSendMessage();
+              onChange={(e) => setInputValue(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") handleSendMessage();
               }}
               disabled={isLoading}
               aria-label="Type your message"
             />
             <button
-              className={`bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg p-2 transition-all duration-200 ${isLoading || !inputValue.trim() ? 'opacity-50 cursor-not-allowed' : ''}`}
+              className={`bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg p-2 transition-all duration-200 ${
+                isLoading || !inputValue.trim()
+                  ? "opacity-50 cursor-not-allowed"
+                  : ""
+              }`}
               onClick={handleSendMessage}
               disabled={isLoading || !inputValue.trim()}
               aria-label="Send message"
