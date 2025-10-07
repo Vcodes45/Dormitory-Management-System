@@ -1,0 +1,16 @@
+/Users/vanshsharma/Desktop/Dormitory/backend-springboot/src/main/java/com/dormitory/config/DataInitializer.java
+/Users/vanshsharma/Desktop/Dormitory/backend-springboot/src/main/java/com/dormitory/DormitoryApplication.java
+/Users/vanshsharma/Desktop/Dormitory/backend-springboot/src/main/java/com/dormitory/dto/ContactResponse.java
+/Users/vanshsharma/Desktop/Dormitory/backend-springboot/src/main/java/com/dormitory/repository/UserRepository.java
+/Users/vanshsharma/Desktop/Dormitory/backend-springboot/src/main/java/com/dormitory/controller/ContactController.java
+/Users/vanshsharma/Desktop/Dormitory/backend-springboot/src/main/java/com/dormitory/controller/AuthController.java
+/Users/vanshsharma/Desktop/Dormitory/backend-springboot/src/main/java/com/dormitory/dto/LoginRequest.java
+/Users/vanshsharma/Desktop/Dormitory/backend-springboot/src/main/java/com/dormitory/dto/ContactRequest.java
+/Users/vanshsharma/Desktop/Dormitory/backend-springboot/src/main/java/com/dormitory/entity/User.java
+/Users/vanshsharma/Desktop/Dormitory/backend-springboot/src/main/java/com/dormitory/dto/LoginResponse.java
+/Users/vanshsharma/Desktop/Dormitory/backend-springboot/src/main/java/com/dormitory/service/AuthService.java
+/Users/vanshsharma/Desktop/Dormitory/backend-springboot/src/main/java/com/dormitory/config/SecurityConfig.java
+/Users/vanshsharma/Desktop/Dormitory/backend-springboot/src/main/java/com/dormitory/service/EmailService.java
+/Users/vanshsharma/Desktop/Dormitory/backend-springboot/src/main/java/com/dormitory/dto/SignupRequest.java
+/Users/vanshsharma/Desktop/Dormitory/backend-springboot/src/main/java/com/dormitory/util/JwtUtil.java
+/Users/vanshsharma/Desktop/Dormitory/backend-springboot/src/main/java/com/dormitory/service/EmailServiceNew.java

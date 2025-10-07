@@ -1,5 +1,5 @@
 const API_KEY = "AIzaSyAFwsuNH-hreJ_JGVNv6gM_L30CFf8rBAI"; // Remember to add your own API key here.
-const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${API_KEY}`;
+const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEY}`;
 
 export const generateContent = async (prompt, systemInstruction = null) => {
     const payload = {
@@ -34,7 +34,17 @@ export const generateContent = async (prompt, systemInstruction = null) => {
         }
     } catch (error) {
         console.error("Gemini API call error:", error);
-        return "Sorry, I'm having trouble connecting to my brain right now. Please try again in a moment.";
+        
+        // More specific error messages
+        if (error.message.includes('400')) {
+            return "I couldn't process your request. Please try rephrasing your question about our dormitory facilities.";
+        } else if (error.message.includes('401') || error.message.includes('403')) {
+            return "I'm experiencing some technical difficulties. Let me help you with basic dormitory information instead.";
+        } else if (error.message.includes('429')) {
+            return "I'm getting too many requests right now. Please wait a moment and try again.";
+        } else {
+            return "I'm temporarily unavailable, but I can still help! Try asking about our rooms, amenities, or contact information.";
+        }
     }
 };
 
