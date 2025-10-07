@@ -1,0 +1,119 @@
+package com.dormitory.service;
+
+import com.dormitory.dto.ContactRequest;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.stereotype.Service;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+@Service
+public class EmailService {
+    
+    private static final Logger logger = LoggerFactory.getLogger(EmailService.class);
+    
+    @Autowired
+    private JavaMailSender mailSender;
+    
+    @Value("${dormitory.email.from:noreply@dormlife.com}")
+    private String fromEmail;
+    
+    @Value("${dormitory.email.admin:admin@dormlife.com}")
+    private String adminEmail;
+    
+    public void sendContactFormEmail(ContactRequest contactRequest) {
+        try {
+            // Send email to admin
+            sendEmailToAdmin(contactRequest);
+            
+            // Send confirmation email to user
+            sendConfirmationEmailToUser(contactRequest);
+            
+            logger.info("Contact form emails sent successfully for: {}", contactRequest.getEmail());
+        } catch (Exception e) {
+            logger.error("Error sending contact form emails: ", e);
+            throw new RuntimeException("Failed to send email: " + e.getMessage());
+        }
+    }
+    
+    private void sendEmailToAdmin(ContactRequest contactRequest) {
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setTo(adminEmail);
+        message.setSubject("New Contact Form Submission - " + contactRequest.getSubject());
+        message.setText(buildAdminEmailContent(contactRequest));
+        message.setFrom(fromEmail);
+        
+        mailSender.send(message);
+        logger.info("Admin notification email sent to: {}", adminEmail);
+    }
+    
+    private void sendConfirmationEmailToUser(ContactRequest contactRequest) {
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setTo(contactRequest.getEmail());
+        message.setSubject("Thank you for contacting DormLife - We received your message");
+        message.setText(buildUserConfirmationContent(contactRequest));
+        message.setFrom(fromEmail);
+        
+        mailSender.send(message);
+        logger.info("Confirmation email sent to user: {}", contactRequest.getEmail());
+    }
+    
+    private void sendEmailToAdmin(ContactRequest contactRequest) {
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setTo(adminEmail);
+        message.setSubject("New Contact Form Submission - " + contactRequest.getSubject());
+        message.setText(buildAdminEmailContent(contactRequest));
+        message.setFrom(fromEmail);
+        
+        mailSender.send(message);
+    }
+    
+    private void sendConfirmationEmailToUser(ContactRequest contactRequest) {
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setTo(contactRequest.getEmail());
+        message.setSubject("Thank you for contacting DormLife - We received your message");
+        message.setText(buildUserConfirmationContent(contactRequest));
+        message.setFrom(fromEmail);
+        
+        mailSender.send(message);
+    }
+    
+    private String buildAdminEmailContent(ContactRequest contactRequest) {
+        return String.format(
+            "New contact form submission received:\n\n" +
+            "Name: %s\n" +
+            "Email: %s\n" +
+            "Subject: %s\n\n" +
+            "Message:\n%s\n\n" +
+            "Please respond to this inquiry as soon as possible.\n\n" +
+            "---\n" +
+            "DormLife Contact System",
+            contactRequest.getName(),
+            contactRequest.getEmail(),
+            contactRequest.getSubject(),
+            contactRequest.getMessage()
+        );
+    }
+    
+    private String buildUserConfirmationContent(ContactRequest contactRequest) {
+        return String.format(
+            "Dear %s,\n\n" +
+            "Thank you for contacting DormLife! We have successfully received your message regarding \"%s\".\n\n" +
+            "Our team will review your inquiry and respond within 24-48 hours. If your matter is urgent, please don't hesitate to call us directly.\n\n" +
+            "Here's a copy of your message:\n" +
+            "Subject: %s\n" +
+            "Message: %s\n\n" +
+            "We appreciate your interest in DormLife and look forward to assisting you!\n\n" +
+            "Best regards,\n" +
+            "The DormLife Team\n\n" +
+            "---\n" +
+            "This is an automated confirmation email. Please do not reply to this address.",
+            contactRequest.getName(),
+            contactRequest.getSubject(),
+            contactRequest.getSubject(),
+            contactRequest.getMessage()
+        );
+    }
+}
