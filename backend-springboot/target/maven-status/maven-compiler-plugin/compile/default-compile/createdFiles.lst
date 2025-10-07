@@ -1,0 +1,15 @@
+com/dormitory/entity/User.class
+com/dormitory/dto/ContactResponse.class
+com/dormitory/dto/ContactRequest.class
+com/dormitory/controller/AuthController.class
+com/dormitory/service/AuthService.class
+com/dormitory/controller/ContactController.class
+com/dormitory/dto/LoginResponse.class
+com/dormitory/dto/SignupRequest.class
+com/dormitory/dto/LoginRequest.class
+com/dormitory/DormitoryApplication.class
+com/dormitory/repository/UserRepository.class
+com/dormitory/util/JwtUtil.class
+com/dormitory/config/DataInitializer.class
+com/dormitory/service/EmailService.class
+com/dormitory/config/SecurityConfig.class
