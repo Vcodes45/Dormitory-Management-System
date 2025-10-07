@@ -6,6 +6,7 @@ com/dormitory/service/AuthService.class
 com/dormitory/controller/ContactController.class
 com/dormitory/dto/LoginResponse.class
 com/dormitory/dto/SignupRequest.class
+com/dormitory/service/EmailServiceNew.class
 com/dormitory/dto/LoginRequest.class
 com/dormitory/DormitoryApplication.class
 com/dormitory/repository/UserRepository.class
